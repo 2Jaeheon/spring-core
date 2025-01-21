@@ -2,8 +2,12 @@ package hello.core.member;
 
 public class MemberServiceImpl implements MemberService {
 
-    // 실제로는 구현체에도 의존하고 있음. 추상화에도 의존하며, 구현체에도 의존하고 있음. 즉, DIP (의존성 역전 원칙) 를 위반하고 있음.
-    private final MemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemberRepository memberRepository;
+
+    // 생성자를 통해서 MemoryMemberRepository를 주입
+    public MemberServiceImpl(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     @Override
     public void join(Member member) {
