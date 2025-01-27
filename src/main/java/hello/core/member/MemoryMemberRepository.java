@@ -2,8 +2,9 @@ package hello.core.member;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import org.springframework.stereotype.Component;
 
+@Component
 public class MemoryMemberRepository implements MemberRepository {
 
     // 해시맵을 썼는데 원래는 ConcurrentHashMap 써야함.
